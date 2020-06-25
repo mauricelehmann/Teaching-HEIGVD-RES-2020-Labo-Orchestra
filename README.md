@@ -152,7 +152,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **stop/kill** one running container?  |
 | | docker (stop or kill) \<container name\> or \<container id\>  |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
-| | *Enter your response here...*  |
+| | We can use "tcpdump" with the right ip and port from another container and check if we receive values.  |
 
 
 ## Task 4: implement an "auditor" Node.js application
