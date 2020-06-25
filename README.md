@@ -128,13 +128,13 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
 | | If you need the "Express" module for example, you just have to type "npm install express" on your node server.  |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
-| | First, install the module https://www.npmjs.com/package/uuid$ , then in the code, define as '''const { v4: uuidv4 } = require('uuid');'''. Finally you can generate an id with the '''uuidv4()''' method.  |
+| | First, install the module https://www.npmjs.com/package/uuid$ , then in the code, define as ```const { v4: uuidv4 } = require('uuid');``` Finally you can generate an id with the ```uuidv4()``` method.  |
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
 | | With the setInterval(callback function, time interval) method (https://nodejs.org/api/timers.html#timers_setinterval_callback_delay_args). |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
-| | Once we declare the UDP4 server : '''this.UDP4Server = dgram.createSocket('udp4');'''. Then we use the .send(msg[, offset, length][, port][, address][, callback]) method on the UDP4Server. (https://nodejs.org/api/dgram.html#dgram_socket_send_msg_offset_length_port_address_callback)  |
+| | Once we declare the UDP4 server : ```this.UDP4Server = dgram.createSocket('udp4');```. Then we use the .send(msg[, offset, length][, port][, address][, callback]) method on the UDP4Server. (https://nodejs.org/api/dgram.html#dgram_socket_send_msg_offset_length_port_address_callback)  |
 |Question | In Node.js, how can we **access the command line arguments**? |
-| | With '''process.argv[n]''', where 'n' is the no of the argument.  |
+| | With ```process.argv[n]```, where 'n' is the no of the argument.  |
 
 
 ## Task 3: package the "musician" app in a Docker image
@@ -160,9 +160,9 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | ---  |
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
-| | *Enter your response here...*  |
+| | Once we declare the UPD4 server, we use ```this.UDP4Server.bind(<port number>, <callback function>)```  |
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
-| | *Enter your response here...* |
+| | We store all the musician data, with a map wich contains : ```this.orchestra = new Map();``` . Then for updating : ```this.orchestra.set(data.id, [data.timestamp,data.instrument]);``` |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
 | | *Enter your response here...* |
 |Question | When and how do we **get rid of inactive players**?  |
