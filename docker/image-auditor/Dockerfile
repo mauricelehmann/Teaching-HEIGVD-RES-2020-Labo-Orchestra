@@ -1,8 +1,9 @@
-FROM node:6.0
+FROM node:8
 MAINTAINER Maurice Lehmann <maurice.lehmann@heig-vd.ch>
 
 #Copy sources code of the node server
 COPY src /opt/app/
+
 
 WORKDIR /opt/app/
 RUN npm install

@@ -1,0 +1,10 @@
+{
+  "name": "RES-labo-orchestra-AuditorServer",
+  "version": "1.0.0",
+  "description": "AuditorServer",
+  "main": "index.js",
+  "dependencies": {
+    "moment": "^2.26.0",
+    "uuid": "^3.3.2"
+  }
+}
