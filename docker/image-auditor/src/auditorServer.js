@@ -5,7 +5,7 @@ var time = require('moment');
 const dgram = require('dgram');
 
 /* Import protocol information */
-const PROTOCOL = require('../../PROTOCOL/PROTOCOL.js');
+const PROTOCOL = require('./PROTOCOL.js');
 
 /* For using the TCP connexion between the localhost user and the auditor server */
 const net = require('net');
@@ -38,8 +38,8 @@ function AuditorServer(){
 
 /**
  * Update the map of musicians
- * @param  {[type]} data
- * @return {[void
+ * @param  {[musician]} data
+ * @return void
  */
 AuditorServer.prototype.updateMusician = function( data ){
 
@@ -116,9 +116,6 @@ AuditorServer.prototype.setupUDPServer = function() {
 
 		//Parse the data from musicianServer and update the map
 		this.updateMusician(JSON.parse(data));
-
-		//console.log("Orchestra stored data :");
-		//console.log(this.orchestra);
 	});
 }
 

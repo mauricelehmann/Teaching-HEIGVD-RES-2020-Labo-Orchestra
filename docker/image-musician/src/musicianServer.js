@@ -11,7 +11,7 @@ const dgram = require('dgram');
 const { v4: uuidv4 } = require('uuid');
 
 /* Import protocol information */
-const PROTOCOL = require('../../PROTOCOL/PROTOCOL.js');
+const PROTOCOL = require('./PROTOCOL.js');
 
 //Define the instruments and their sounds
 const INSTRUMENTS = {
