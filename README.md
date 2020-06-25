@@ -120,21 +120,21 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
-| | *Enter your response here...*  |
+| | We used JSON.stringify(data)  |
 |Question | What is **npm**?  |
-| | *Enter your response here...*  |
+| | Node Package Manager is a command line manager that allow you to install and manage Node.js packages. You can download a lot of module from https://www.npmjs.com/  |
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
 | | *Enter your response here...*  |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
-| | *Enter your response here...*  |
+| | If you need the "Express" module for example, you just have to type "npm install express" on your node server.  |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
-| | *Enter your response here...*  |
+| | First, install the module https://www.npmjs.com/package/uuid$ , then in the code, define as ```const { v4: uuidv4 } = require('uuid');``` Finally you can generate an id with the ```uuidv4()``` method.  |
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
-| | *Enter your response here...*  |
+| | With the setInterval(callback function, time interval) method (https://nodejs.org/api/timers.html#timers_setinterval_callback_delay_args). |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
-| | *Enter your response here...*  |
+| | Once we declare the UDP4 server : ```this.UDP4Server = dgram.createSocket('udp4');```. Then we use the .send(msg[, offset, length][, port][, address][, callback]) method on the UDP4Server. (https://nodejs.org/api/dgram.html#dgram_socket_send_msg_offset_length_port_address_callback)  |
 |Question | In Node.js, how can we **access the command line arguments**? |
-| | *Enter your response here...*  |
+| | With ```process.argv[n]```, where 'n' is the no of the argument.  |
 
 
 ## Task 3: package the "musician" app in a Docker image
@@ -142,17 +142,17 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we **define and build our own Docker image**?|
-| | *Enter your response here...*  |
+| | Using the Dockerfile file and run 'docker build <name> .' cmd in the same folder.  |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
-| | *Enter your response here...*  |
+| | The statement ENTRYPOINT allow to define what command we want to run on the start of the container. In out case, we'll start node : ENTRYPOINT ["node", "/opt/app/musicianServer.js"]  |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
-| | *Enter your response here...*  |
+| |   |
 |Question | How do we get the list of all **running containers**?  |
-| | *Enter your response here...*  |
+| | *docker ps *  |
 |Question | How do we **stop/kill** one running container?  |
-| | *Enter your response here...*  |
+| | docker (stop or kill) \<container name\> or \<container id\>  |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
-| | *Enter your response here...*  |
+| | We can use "tcpdump" with the right ip and port from another container and check if we receive values.  |
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -160,15 +160,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | ---  |
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group? |
-| | *Enter your response here...*  |
+| | Once we declare the UPD4 server, we use ```this.UDP4Server.bind(<port number>, <callback function>)```  |
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
-| | *Enter your response here...* |
+| | We store all the musician data, with a map wich contains : ```this.orchestra = new Map();``` . Then for updating : ```this.orchestra.set(data.id, [data.timestamp,data.instrument]);``` |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
-| | *Enter your response here...* |
+| | First, we initialize a variable time : ```var time = require('moment');```. Then we can get the current timestamp with the method ```time()```. It return the current timestamp as "2020-06-25T12:44:19.464Z" for example. |
 |Question | When and how do we **get rid of inactive players**?  |
-| | *Enter your response here...* |
+| | In the auditorServer, we compute the difference with the current timestamp and the saved timestamp of a musician in our list: ```time().diff(<saved timestamp>)``` , then we compare with the maximum permit time we choose in our protocol ```if(timeDifference < PROTOCOL.TIME_MUSICIAN_IS_ALIVE){ ... } ```  |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
-| | *Enter your response here...* |
+| | With the ```this.TCPServer = net.createServer();``` (//https://nodejs.org/api/net.html#net_net_createserver_options_connectionlistener) , we create a TCP server. Then we make the TCP server listen on the port : ```this.TCPServer.listen(PROTOCOL.PORT);```. Finally, we define the behavior when a connexion occure : ``` this.TCPServer.on('connection', (TCPSocket) => { ... } ``` |
 
 
 ## Task 5: package the "auditor" app in a Docker image
@@ -176,7 +176,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we validate that the whole system works, once we have built our Docker image? |
-| | *Enter your response here...* |
+| | The script ```validate.sh``` will validate the hole process. It build 3 docker containers, a musicianServer, an auditorServer and a custom "image-validation" images. |
 
 
 ## Constraints
