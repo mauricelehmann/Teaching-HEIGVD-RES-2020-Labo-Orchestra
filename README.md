@@ -164,11 +164,11 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?  |
 | | We store all the musician data, with a map wich contains : ```this.orchestra = new Map();``` . Then for updating : ```this.orchestra.set(data.id, [data.timestamp,data.instrument]);``` |
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?  |
-| | *Enter your response here...* |
+| | First, we initialize a variable time : ```var time = require('moment');```. Then we can get the current timestamp with the method ```time()```. It return the current timestamp as "2020-06-25T12:44:19.464Z" for example. |
 |Question | When and how do we **get rid of inactive players**?  |
-| | *Enter your response here...* |
+| | In the auditorServer, we compute the difference with the current timestamp and the saved timestamp of a musician in our list: ```time().diff(<saved timestamp>)``` , then we compare with the maximum permit time we choose in our protocol ```if(timeDifference < PROTOCOL.TIME_MUSICIAN_IS_ALIVE){ ... } ```  |
 |Question | How do I implement a **simple TCP server** in Node.js?  |
-| | *Enter your response here...* |
+| | With the ```this.TCPServer = net.createServer();``` (//https://nodejs.org/api/net.html#net_net_createserver_options_connectionlistener) , we create a TCP server. Then we make the TCP server listen on the port : ```this.TCPServer.listen(PROTOCOL.PORT);```. Finally, we define the behavior when a connexion occure : ``` this.TCPServer.on('connection', (TCPSocket) => { ... } ``` |
 
 
 ## Task 5: package the "auditor" app in a Docker image
@@ -176,7 +176,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | How do we validate that the whole system works, once we have built our Docker image? |
-| | *Enter your response here...* |
+| | The script ```validate.sh``` will validate the hole process. It build 3 docker containers, a musicianServer, an auditorServer and a custom "image-validation" images. |
 
 
 ## Constraints
