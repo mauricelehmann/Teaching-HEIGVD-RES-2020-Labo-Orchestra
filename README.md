@@ -120,21 +120,21 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | ---  | --- |
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**? |
-| | *Enter your response here...*  |
+| | We used JSON.stringify(data)  |
 |Question | What is **npm**?  |
-| | *Enter your response here...*  |
+| | Node Package Manager is a command line manager that allow you to install and manage Node.js packages. You can download a lot of module from https://www.npmjs.com/  |
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?  |
 | | *Enter your response here...*  |
 |Question | How can we use the `https://www.npmjs.com/` web site?  |
-| | *Enter your response here...*  |
+| | If you need the "Express" module for example, you just have to type "npm install express" on your node server.  |
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122? |
-| | *Enter your response here...*  |
+| | First, install the module https://www.npmjs.com/package/uuid$ , then in the code, define as '''const { v4: uuidv4 } = require('uuid');'''. Finally you can generate an id with the '''uuidv4()''' method.  |
 |Question | In Node.js, how can we execute a function on a **periodic** basis? |
-| | *Enter your response here...*  |
+| | With the setInterval(callback function, time interval) method (https://nodejs.org/api/timers.html#timers_setinterval_callback_delay_args). |
 |Question | In Node.js, how can we **emit UDP datagrams**? |
-| | *Enter your response here...*  |
+| | Once we declare the UDP4 server : '''this.UDP4Server = dgram.createSocket('udp4');'''. Then we use the .send(msg[, offset, length][, port][, address][, callback]) method on the UDP4Server. (https://nodejs.org/api/dgram.html#dgram_socket_send_msg_offset_length_port_address_callback)  |
 |Question | In Node.js, how can we **access the command line arguments**? |
-| | *Enter your response here...*  |
+| | With '''process.argv[n]''', where 'n' is the no of the argument.  |
 
 
 ## Task 3: package the "musician" app in a Docker image
@@ -150,7 +150,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we get the list of all **running containers**?  |
 | | *docker ps *  |
 |Question | How do we **stop/kill** one running container?  |
-| | docker (stop or kill) <container name> or <container id>  |
+| | docker (stop or kill) \<container name\> or \<container id\>  |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
 | | *Enter your response here...*  |
 
