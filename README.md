@@ -144,11 +144,11 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **define and build our own Docker image**?|
 | | Using the Dockerfile file and run 'docker build <name> .' cmd in the same folder.  |
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?  |
-| | The statement ENTRYPOINT allow to define what command we want to run on the start of the container. In out case, we'll start node : ENTRYPOINT ["node", "/opt/app/musicianServer.js"]  |
+| | The statement ENTRYPOINT allow to define what command we want to run on the start of the container. I.e, for the Musician server, we'll start node : ENTRYPOINT ["node", "/opt/app/musicianServer.js"]  |
 |Question | After building our Docker image, how do we use it to **run containers**?  |
-| |   |
+| |  ```docker run (-it for interactiv mode) (--name <name> for give a name to the container) <image name>``` |
 |Question | How do we get the list of all **running containers**?  |
-| | *docker ps *  |
+| | ```docker ps```  |
 |Question | How do we **stop/kill** one running container?  |
 | | docker (stop or kill) \<container name\> or \<container id\>  |
 |Question | How can we check that our running containers are effectively sending UDP datagrams?  |
